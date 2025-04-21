@@ -28,12 +28,12 @@ CSI6900/
 │ ├── common.py 
 │ ├── distance_transformer.py 
 │ ├── cnn_sequence_vae.py 
-│ ├── hetero_vae.py 
+│ ├── heteroencoder.py 
 │ └── protein_cnnlstm.py 
 ├── train/ # Training scripts for individual models 
 │ ├── init.py 
 │ ├── train_distance_transformer.py 
-│ ├── train_dual_vae.py 
+│ ├── train_dual_ae.py 
 │ └── train_protein_cnnlstm.py 
 └── utils/ # Utility functions: data preprocessing, dataset construction, evaluation, and configurations 
   ├── init.py 
@@ -73,7 +73,7 @@ The main.py script is a standard Python entry point with command-line arguments 
 2. **Data Sampling:**
    - `--sample`: Number of samples to use (default: `0`, which means using the entire dataset).
 3. **Model Selection:**
-   - `--model`: Model to train and evaluate.(The default is `DistanceTransformer`.) Options include:
+   - `--model`: Model to train and evaluate.(The default is `MultiScaleDistanceTransformer`.) Options include:
      - `MultiScaleDistanceTransformer`
      - `SequenceAutoencoder`
      - `ProteinCNNLSTM` 
@@ -81,16 +81,17 @@ The main.py script is a standard Python entry point with command-line arguments 
 4. **Hyperparameters:**
    - `--lr`: Learning rate (default: `1e-3`).
    - `--batch_size`: Batch size (default: `128`).
-   - `--num_epochs`: Number of training epochs (default: `50000` for DistanceTransformer; adjust this value accordingly for other models).
+   - `--num_epochs`: Number of training epochs (default: `50000` for MultiScaleDistanceTransformer; adjust this value accordingly for other models).
 
 To run the script, use a command similar to:
 
 ```bash
-python main.py --csv_path dataset/large/AA.csv --alpha_c_dir dataset/large/PDBalphaC --model DistanceTransformer --batch_size 128 --lr 1e-3 --num_epochs 50000
+python main.py --csv_path dataset/large/AA.csv --alpha_c_dir dataset/large/PDBalphaC --model MultiScaleDistanceTransformer --batch_size 128 --lr 1e-3 --num_epochs 50000
 ```
 
 Modify the parameters as needed for different experiments.
 
-You can change the global setting at ./utils/config.py
+Global parameters can be changed in `./utils/config.py`
+
 ## Contact
 Tiancheng Qin - [tqin021@uottawa.ca](tqin021@uottawa.ca)
