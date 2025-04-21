@@ -91,7 +91,7 @@ python main.py --csv_path dataset/large/AA.csv --alpha_c_dir dataset/large/PDBal
 
 Modify the parameters as needed for different experiments.
 
-Global parameters can be changed in `./utils/config.py`
+Global parameters (Random Seed) can be changed in `./utils/config.py`
 
 ## Contact
 Tiancheng Qin - [tqin021@uottawa.ca](tqin021@uottawa.ca)
