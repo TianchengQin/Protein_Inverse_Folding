@@ -1,4 +1,4 @@
-# CSI6900 Project - Designing Amino Acid Sequences for Target Protein Structures Using Deep Learning
+# Designing Amino Acid Sequences for Target Protein Structures Using Deep Learning
 
 
 ## Overview
